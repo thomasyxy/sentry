@@ -1,0 +1,19 @@
+{
+  "name": "sentry",
+  "version": "1.0.0",
+  "description": "前端代码监控平台",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thomasyxy/sentry.git"
+  },
+  "author": "thomasyxy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thomasyxy/sentry/issues"
+  },
+  "homepage": "https://github.com/thomasyxy/sentry#readme"
+}
