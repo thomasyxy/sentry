@@ -4,6 +4,7 @@
   "description": "前端代码监控平台",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
