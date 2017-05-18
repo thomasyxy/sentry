@@ -4,19 +4,43 @@ const Koa = require('koa')
 const app = new Koa()
 const onerror = require('koa-onerror')
 const parse = require('co-body')
+const Jade = require('koa-jade')
+const staticCache = require('koa-static-cache')
 
-console.log(app.env)
+const routes = require('./routes')
+
+console.log(`environment: ${app.env}`)
 
 const G = {
   C: require('./config')[app.env],
   M: null
 }
 const localUri = 'http://127.0.0.1'
+const isDev = app.env === 'development'
+
+// 配置路由
+app.use(routes.routes()).use(routes.allowedMethods())
+
+//静态资源文件
+app.use(staticCache('./public', {
+  maxAge: 0
+}))
+
+const jade = new Jade({
+  viewPath: __dirname + "/views",
+  debug: isDev,
+  pretty: isDev,
+  compileDebug: false,
+  locals: {
+    staticPath: '/static'
+  },
+  app: app
+})
 
 // middlewares
 // app.use(parse)
 
-//错误处理
+// 错误处理
 onerror(app, {
   'json': function (err) {
     console.log(err);
@@ -33,6 +57,7 @@ onerror(app, {
   }
 })
 
+// 空路由处理
 app.use(async (ctx, next) => {
   await next()
   if (404 !== ctx.status) return
