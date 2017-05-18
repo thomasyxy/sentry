@@ -1,6 +1,6 @@
 const dev = require('./dev.env.js')
 const test = require('./test.env.js')
-const prod = require('./dev.prod.js')
+const prod = require('./prod.env.js')
 
 let config = {
   development: dev,
@@ -8,4 +8,4 @@ let config = {
   production: prod
 }
 
-module.exports config
+module.exports = config
