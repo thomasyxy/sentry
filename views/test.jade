@@ -11,3 +11,10 @@ html
     title #{title}
   body(class="#{pageClass || ''}") 
     div#container #{msg}
+    script(src="https://cdn.ravenjs.com/3.15.0/raven.min.js")
+    script.
+      Raven.config('https://622ed163f513486b8e7210152541f1b6@sentry.io/169538').install()
+    script.
+      console.log(as.b);
+      console.log(as.c);
+      console.log(as.d);
