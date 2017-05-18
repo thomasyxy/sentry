@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "babel-plugin-import": "^1.1.1",
+    "co-body": "^5.1.1",
     "koa": "^2.2.0"
   }
 }
