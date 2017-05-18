@@ -16,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/thomasyxy/sentry/issues"
   },
-  "homepage": "https://github.com/thomasyxy/sentry#readme"
+  "homepage": "https://github.com/thomasyxy/sentry#readme",
+  "dependencies": {
+    "antd-mobile": "^1.1.3"
+  },
+  "devDependencies": {
+    "babel-plugin-import": "^1.1.1",
+    "koa": "^2.2.0"
+  }
 }
