@@ -1,10 +1,11 @@
 
 module.exports = {
   async error(ctx) {
-    await ctx.render('error', {
-      title: 'error',
-      msg: 'ERROR MESSAGE'
-    })
+    ctx.body = {
+    	"code": 200,
+    	"data": {},
+    	"resultmessage": ""
+    }
   },
   async error2(ctx) {
     ctx.body = {
