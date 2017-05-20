@@ -3,7 +3,7 @@
 const Koa = require('koa')
 const app = new Koa()
 const onerror = require('koa-onerror')
-const parse = require('co-body')
+const bodyparser = require('koa-bodyparser')()
 const Jade = require('koa-jade')
 const staticCache = require('koa-static-cache')
 
@@ -38,7 +38,7 @@ const jade = new Jade({
 })
 
 // middlewares
-// app.use(parse)
+app.use(bodyparser)
 
 // 错误处理
 onerror(app, {
