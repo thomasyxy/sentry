@@ -4,5 +4,6 @@
  */
 
 module.exports = {
-  PORT: 7200
+  PORT: 7200,
+  DBNAME: 'log'
 }

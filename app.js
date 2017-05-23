@@ -11,10 +11,10 @@ const routes = require('./routes')
 
 console.log(`environment: ${app.env}`)
 
-const G = {
-  C: require('./config')[app.env],
-  M: null
-}
+global.G = {}
+G.C = require('./config')[app.env]
+G.M = require('./models/index')
+
 const localUri = 'http://127.0.0.1'
 const isDev = app.env === 'development'
 
