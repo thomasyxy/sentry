@@ -20,7 +20,7 @@ db.getModel = function(m) {
   } else {
     let json = require(`./${m}`)
     let newSchema = new Schema(json)
-    let newModel = db.model(`${m}`, mySchema)
+    let newModel = db.model(`${m}`, newSchema)
     db.modelsList[m] = newModel
 
     return newModel

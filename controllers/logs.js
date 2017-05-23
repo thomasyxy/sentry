@@ -1,5 +1,16 @@
-function saveErrorLog (model, data) {
-  model
+let createError = async function (model, data) {
+  let result = {}
+  await model.creat(data, function(err, res) {
+    if(err) {
+      result.success = false
+      result.message = err
+    } else {
+      result.success = true
+      result.message = '录入日志成功'
+      result.data = res._doc
+    }
+  })
+  return result
 }
 
 
@@ -13,11 +24,11 @@ module.exports = {
         target = []
 
     for (let i = 0; i < ctx.query.count; i++) {
-      msg.push(ctx.query.msg[i])
-      colNum.push(ctx.query.colNum[i])
-      from.push(ctx.query.from[i])
-      rowNum.push(ctx.query.rowNum[i])
-      target.push(ctx.query.target[i])
+      msg.push(ctx.query[`msg[${i}]`])
+      colNum.push(ctx.query[`colNum[${i}]`])
+      from.push(ctx.query[`from[${i}]`])
+      rowNum.push(ctx.query[`rowNum[${i}]`])
+      target.push(ctx.query[`target[${i}]`])
     }
     let data = {
       msg: msg,
@@ -25,12 +36,12 @@ module.exports = {
       from: from,
       rowNum: rowNum,
       target: target,
-      count: count,
-      _t: _t,
-      uin: uin,
-      id: id
+      count: ctx.query.count,
+      _t: ctx.query._t,
+      uin: ctx.query.uin,
+      id: ctx.query.id
     }
-    await saveErrorLog(Error, data)
+    await createError(Error, data)
   },
   async error2(ctx) {
     ctx.body = {
