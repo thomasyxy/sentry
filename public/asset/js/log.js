@@ -14,7 +14,13 @@ BJ_REPORT.init({
   //- offlineLogExp : 5,                    // 离线有效时间，默认最近5天
 });
 
+var err = ['z', 'x', 'c', 'g', 'r'];
+var a;
+var i = 0
 
-setInterval(function() {
-  console.log(a.b)
+var timer = setInterval(function() {
+  if(i === 10) {
+    clearInterval(timer)
+  }
+  console.log(a[err[++i]])
 }, 100)
