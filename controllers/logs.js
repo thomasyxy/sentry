@@ -1,6 +1,6 @@
 let createError = async function (model, data) {
   let result = {}
-  await model.creat(data, function(err, res) {
+  await model.create(data, function(err, res) {
     if(err) {
       result.success = false
       result.message = err
