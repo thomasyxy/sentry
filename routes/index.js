@@ -5,7 +5,7 @@ const test = require('./test')
 
 const home = require('../controllers/home')
 
-router.get('/', home)
+router.get('/', home.main)
 router.use('/logs', logs.routes())
 router.use('/test', test.routes())
 
