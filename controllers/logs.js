@@ -1,11 +1,36 @@
+function saveErrorLog (model, data) {
+  model
+}
+
 
 module.exports = {
   async error(ctx) {
-    ctx.body = {
-    	"code": 200,
-    	"data": {},
-    	"resultmessage": ""
+    let Error = G.M('error')
+    let msg = [],
+        colNum = [],
+        from = [],
+        rowNum = [],
+        target = []
+
+    for (let i = 0; i < ctx.query.count; i++) {
+      msg.push(ctx.query.msg[i])
+      colNum.push(ctx.query.colNum[i])
+      from.push(ctx.query.from[i])
+      rowNum.push(ctx.query.rowNum[i])
+      target.push(ctx.query.target[i])
     }
+    let data = {
+      msg: msg,
+      colNum: colNum,
+      from: from,
+      rowNum: rowNum,
+      target: target,
+      count: count,
+      _t: _t,
+      uin: uin,
+      id: id
+    }
+    await saveErrorLog(Error, data)
   },
   async error2(ctx) {
     ctx.body = {

@@ -318,11 +318,11 @@ var BJ_REPORT = (function(global) {
             return ;
         }
 
-        var url =_config._reportUrl + submit_log_list.join("&") + "&count=" + submit_log_list.length + "&_t=" + (+new Date);
-
         if (_config.submit) {
+            var url =_config._reportUrl + submit_log_list.join("&") + "&count=" + submit_log_list.length + "&_t=" + (+new Date);
             _config.submit(url);
         } else {
+            var url =_config._reportUrl + submit_log_list.join("&") + "&count=" + submit_log_list.length + "&_t=" + (+new Date);
             var _img = new Image();
             _img.src = url;
         }
